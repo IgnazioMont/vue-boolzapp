@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- ROBOTO font -->
+    <!-- Quicksand font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <!-- Fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 
@@ -38,7 +38,7 @@
                             <div class="img-container">
                                 <img src="img/avatar_4.jpg" alt="My img">
                             </div>
-                            <h2>My user</h2>
+                            <h2>Myself</h2>
                         </div>
                         <!-- Icons right -->
                         <div class="header-right">
@@ -61,7 +61,7 @@
                         <!-- Search section -->
                         <div class="search">
                             <div><i class="fas fa-search"></i></div>
-                            <input v-model="search" type="text" placeholder="Cerca o inizia una nuova chat">
+                            <input v-model="search" type="text" @keyup="filterTodos" placeholder="Cerca o inizia una nuova chat">
                         </div>
                         <!-- Opened chats -->
                         <div class="contact-list">
@@ -87,7 +87,12 @@
                     <header class="chat-header">
                         <!-- Profile section -->
                         <div class="header-left">
-
+                            <img :src="contacts[contactIndex].avatar" alt="profilo">
+                            <p> {{contacts[contactIndex].name}} <br>
+                                <span>Ultimo accesso:
+                                    <!-- All'indice del messaggio, prendo la data del message -->
+                                    {{contacts[contactIndex].messages[contacts[contactIndex].messages.length - 1].date}}</span>
+                            </p>
                         </div>
 
                         <!-- Icons right -->
@@ -116,7 +121,6 @@
                         <i class="fas fa-microphone"></i>
                     </div>
                 </div>
-    
             </div>
         </div>
     </div>

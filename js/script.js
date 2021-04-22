@@ -18,7 +18,8 @@ const boolZapp = new Vue({
 		userInput: "",
 		search: "",
 		contactIndex: 0,
-		
+		userFilter: "",
+
 		contacts: [
 			//	Alessandro
 			{
@@ -129,6 +130,17 @@ const boolZapp = new Vue({
 	methods: {
 		changeContact(index){
 			this.contactIndex = index;
+		},
+		//  Per vedere se una porzione di stringa è compresa
+		filterTodos() {
+			this.contacts.forEach((element) => {
+				//  Se la stringa è compresa, la visibilità è true
+				if(element.text.toLowerCase().includes(this.userFilter.toLowerCase())) {
+					element.visible = true;
+				} else {
+					element.visible = false;
+				}
+			});
 		}
 	}
 });
