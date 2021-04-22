@@ -23,7 +23,7 @@ const boolZapp = new Vue({
 			//	Alessandro
 			{
 				name: 'Alessandro',
-				avatar: '../img/avatar_2.jpg',
+				avatar: 'img/avatar_2.jpg',
 				visible: false,
 				isActive: "",
 				messages: [
@@ -51,7 +51,7 @@ const boolZapp = new Vue({
 			//	Fabio
 			{
 				name: 'Fabio',
-				avatar: '../img/avatar_3.jpg',
+				avatar: 'img/avatar_3.jpg',
 				visible: false,
 				messages: [
 					{
@@ -78,7 +78,7 @@ const boolZapp = new Vue({
 			//	Donato
 			{
 				name: 'Donato',
-				avatar: '../img/avatar_5.jpg',
+				avatar: 'img/avatar_5.jpg',
 				visible: false,
 				messages: [
 					{
@@ -105,7 +105,7 @@ const boolZapp = new Vue({
 			//	Simone
 			{
 				name: 'Simone',
-				avatar: '_../img/avatar_7.jpg',
+				avatar: 'img/avatar_7.jpg',
 				visible: false,
 				messages: [
 					{
@@ -126,4 +126,6 @@ const boolZapp = new Vue({
 	},
 
 	//	METHODS
+	methods: {
+	}
 });

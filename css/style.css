@@ -71,7 +71,8 @@ img {
 .header-left .img-container {
     margin-right: 15px;
 }
-.header-left img {
+.header-left img,
+.contact img {
     width: 45px;
     border-radius: 50%;
 }
@@ -148,6 +149,28 @@ img {
     outline: none;
     border: 1px solid #E9EBEB;
 }
+
+.contact {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 10px 20px;
+    border-top: 1px solid #E9EBEB;
+    position: relative;
+    line-height: 20px;
+}
+.contact p {
+    align-self: flex-start;
+}
+.contact:hover {
+    background-color: #E9EBEB;
+    cursor: pointer;
+}
+.active {
+    background-color: #E9EBEB;
+}
+
+
 .chat {
     width: 65%;
     height: 100%;

@@ -61,17 +61,18 @@
                         <!-- Search section -->
                         <div class="search">
                             <div><i class="fas fa-search"></i></div>
-                            <input type="text" placeholder="Cerca o inizia una nuova chat">
+                            <input v-model="search" type="text" placeholder="Cerca o inizia una nuova chat">
                         </div>
                         <!-- Opened chats -->
                         <div class="contact-list">
-                            <!-- 
                             <ul>
-                                <li>
-                                
+                                <li v-for="(contact, index) in contacts" class="contact" :class="contactIndex == index ? 'active' : ''">
+                                    <div class="img-container">
+                                        <img :src="contact.avatar" alt="avatar">
+                                    </div>
+                                    <p> {{contact.name}} </p>
                                 </li>
-                            </ul> 
-                            -->
+                            </ul>
                         </div>
                     </div>
                 </div>
