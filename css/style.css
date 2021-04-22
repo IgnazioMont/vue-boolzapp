@@ -1,0 +1,20 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+img {
+    width: 100%;
+    display: block;
+}
+.border {
+    border-radius: 20px;
+}
+
+/* COMMON */
+.container {
+    max-width: 1000px;
+    margin: 25px auto 0 auto;
+}
