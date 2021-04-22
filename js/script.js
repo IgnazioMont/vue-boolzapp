@@ -12,89 +12,118 @@
 */
 
 const boolZapp = new Vue({
-	contacts: [
-		{
-			name: 'Alessandro',
-			avatar: '_1',
-			visible: true,
-			messages: [
-				{
-					date: '10/01/2020 15:30:55',
-					text: "Ciao Ale, hai seguito l'ultimo lancio della Space X?",
-					status: 'sent'
-				},
-				{
-					date: '10/01/2020 15:50:00',
-					text: 'Ti consiglio la live su YouTube',
-					status: 'sent'
-				},
-				{
-					date: '10/01/2020 16:15:22',
-					text: 'Corro!',
-					status: 'received'
-				}
-			],
-		},
-		{
-			name: 'Fabio',
-			avatar: '_2',
-			visible: true,
-			messages: [
-				{
-					date: '20/03/2020 16:30:00',
-					text: 'Ciao Fabio, vorrei iscrivermi al vostro corso.',
-					status: 'sent'
-				},
-				{
-					date: '20/03/2020 16:30:55',
-					text: 'Grazie per averci scelto. Consulta il nostro sito Web.',
-					status: 'received'
-				},
-				{
-					date: '20/03/2020 16:35:00',
-					text: "Ok, grazie mille, non vedo l'ora di iniziare!",
-					status: 'sent'
-				}
-			],
-		},
-		{
-			name: 'Donato',
-			avatar: '_3',
-			visible: true,
-			messages: [
-				{
-					date: '28/03/2020 10:10:40',
-					text: 'Ciao, ricordati di pushare!',
-					status: 'received'
-				},
-				{
-					date: '28/03/2020 10:20:10',
-					text: 'Ok Donato, me ne dimentico SEMPRE!',
-					status: 'sent'
-				},
-				{
-					date: '28/03/2020 16:15:22',
-					text: 'Bene.',
-					status: 'received'
-				}
-			],
-		},
-		{
-			name: 'Simone',
-			avatar: '_4',
-			visible: true,
-			messages: [
-				{
-					date: '10/01/2020 15:30:55',
-					text: "Ciao Simone, saresti così gentile da farmi l'esercizio?",
-					status: 'sent'
-				},
-				{
-					date: '10/01/2020 15:50:00',
-					text: 'Direi proprio di no. Studia!',
-					status: 'received'
-				}
-			],
-		}
-	],
+	el: "#root",
+
+	data: {
+		userInput: "",
+		search: "",
+		contactIndex: 0,
+		
+		contacts: [
+			//	Alessandro
+			{
+				name: 'Alessandro',
+				avatar: '../img/avatar_2.jpg',
+				visible: false,
+				isActive: "",
+				messages: [
+					{
+						date: '22/04/2021 15:30:07',
+						text: "Ciao Ale, hai seguito l'ultimo lancio della Space X?",
+						status: 'sent',
+						visibility: "hidden"
+					},
+					{
+						date: '22/04/2021 15:30:23',
+						text: 'Ti consiglio la live su YouTube',
+						status: 'sent',
+						visibility: "hidden"
+					},
+					{
+						date: '22/04/2021 15:31:54',
+						text: 'Corro!',
+						status: 'received',
+						visibility: "hidden"
+					}
+				],
+			},
+
+			//	Fabio
+			{
+				name: 'Fabio',
+				avatar: '../img/avatar_3.jpg',
+				visible: false,
+				messages: [
+					{
+						date: '20/01/2021 10:42:32',
+						text: 'Buongiorno Fabio, vorrei iscrivermi al vostro corso.',
+						status: 'sent',
+						visibility: "hidden"
+					},
+					{
+						date: '20/01/2021 17:12:22',
+						text: 'Grazie per averci scelto. Consulta il nostro sito Web.',
+						status: 'received',
+						visibility: "hidden"
+					},
+					{
+						date: '21/01/2021 08:54:36',
+						text: "Ok, grazie mille, non vedo l'ora di iniziare!",
+						status: 'sent',
+						visibility: "hidden"
+					}
+				],
+			},
+
+			//	Donato
+			{
+				name: 'Donato',
+				avatar: '../img/avatar_5.jpg',
+				visible: false,
+				messages: [
+					{
+						date: '22/04/2021 16:23:39',
+						text: 'Ciao, ricordati di pushare!',
+						status: 'received',
+						visibility: "hidden"
+					},
+					{
+						date: '22/04/2021 16:25:19',
+						text: 'Ok Donato, me ne dimentico SEMPRE!',
+						status: 'sent',
+						visibility: "hidden"
+					},
+					{
+						date: '22/04/2021 16:26:36',
+						text: 'Bene.',
+						status: 'received',
+						visibility: "hidden"
+					}
+				],
+			},
+
+			//	Simone
+			{
+				name: 'Simone',
+				avatar: '_../img/avatar_7.jpg',
+				visible: false,
+				messages: [
+					{
+						date: '22/04/2021 17:31:22',
+						text: "Ciao Simone, saresti così gentile da farmi l'esercizio?",
+						status: 'sent',
+						visibility: "hidden"
+					},
+					{
+						date: '22/04/2021 17:35:07',
+						text: 'Direi proprio di no. Studia!',
+						status: 'received',
+						visibility: "hidden"
+					}
+				],
+			}
+		],
+	},
+
+	//	METHODS
 });

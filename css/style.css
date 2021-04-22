@@ -10,6 +10,14 @@ img {
     display: block;
 }
 
+/* COMMON */
+.show {
+    display: block;
+}
+.hidden {
+    display: none;
+}
+
 /* Background */
 .bg {
     font-family: 'Roboto', sans-serif;
@@ -30,7 +38,7 @@ img {
 }
 
 /* Inner container */
-#container {
+.container {
     width: 1200px;
     height: 90vh;
     display: flex;
@@ -121,6 +129,7 @@ img {
     display: flex;
     padding: 10px;
     height: 50px;
+    color: #acacac;
 }
 /* Search icon */
 .search div {
