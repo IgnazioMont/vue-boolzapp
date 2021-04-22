@@ -150,6 +150,10 @@ img {
     border: 1px solid #E9EBEB;
 }
 
+.contact-list {
+    height: calc(100% - 50px);
+    overflow-y: scroll;
+}
 .contact {
     display: flex;
     align-items: center;
@@ -169,9 +173,76 @@ img {
 .active {
     background-color: #E9EBEB;
 }
+.data {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 10px;
+    color:  #acacac;
+}
 
-
+/* Chat section */
 .chat {
     width: 65%;
     height: 100%;
+}
+.chat-header > .header-left {
+    font-size: 1rem;
+}
+.chat-header > .header-left img {
+    margin-right: 20px;
+}
+.chat-header > .header-left p span {
+    color: grey;
+    font-size: .8rem;
+}
+.chat-box {
+    width: 100%;
+    height: calc(100% - 140px);
+    background-image: url("../img/mine.jpg");
+    background-position: center;
+}
+.messages {
+    height: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+.messages div {
+    padding: 20px 40px;
+    width: 350px;
+    border-radius: 10px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+/* Sent / received msg */
+.sent {
+    background-color: #D5F9BA;
+    align-self: flex-end;
+}
+.received {
+    background-color: white;
+}
+
+/* Input */
+.chat-input {
+    height: 70px;
+    background-color: #F3EEEA;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.chat-input input {
+    width: 85%;
+    height: 45px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+.chat-input i {
+    color: #6B7376;
+    font-size: 20px;
 }

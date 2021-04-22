@@ -66,7 +66,12 @@
                         <!-- Opened chats -->
                         <div class="contact-list">
                             <ul>
-                                <li v-for="(contact, index) in contacts" class="contact" :class="contactIndex == index ? 'active' : ''">
+                                <!-- 
+                                    Scorro l'array di oggetti e prendo contatto e indice, 
+                                    se corrispondono la classe è active (bg grigio sulla lista a sx) + 
+                                    scorre tutti gli user e al click mostra la conversazione corrispondente allo user.
+                                -->
+                                <li v-for="(contact, index) in contacts" class="contact" :class="contactIndex == index ? 'active' : ''" @click="changeContact(index)">
                                     <div class="img-container">
                                         <img :src="contact.avatar" alt="avatar">
                                     </div>
@@ -95,12 +100,20 @@
 
                     <!-- Chat box -->
                     <div class="chat-box">
-
+                        <div class="messages">
+                            <!-- Scorriamo i messaggi in base allo stato (inviato/ricevuto) -->
+                            <div :class="message.status" v-for="(message, index) in contacts[contactIndex].messages"> {{message.text}}
+                                <!-- Inseriamo data e ora -->
+                                <span class="data">{{message.date}}</span>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Chat input  -->
                     <div class="chat-input">
-                        
+                        <i class="far fa-smile"></i>
+                        <input placeholder="Scrivi un messaggio">
+                        <i class="fas fa-microphone"></i>
                     </div>
                 </div>
     

@@ -127,5 +127,8 @@ const boolZapp = new Vue({
 
 	//	METHODS
 	methods: {
+		changeContact(index){
+			this.contactIndex = index;
+		}
 	}
 });
