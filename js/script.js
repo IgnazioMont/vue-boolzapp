@@ -18,14 +18,13 @@ const boolZapp = new Vue({
 		userInput: "",
 		search: "",
 		contactIndex: 0,
-		userFilter: "",
 
 		contacts: [
 			//	Alessandro
 			{
 				name: 'Alessandro',
 				avatar: 'img/avatar_2.jpg',
-				visible: false,
+				visible: true,
 				isActive: "",
 				messages: [
 					{
@@ -53,7 +52,7 @@ const boolZapp = new Vue({
 			{
 				name: 'Fabio',
 				avatar: 'img/avatar_3.jpg',
-				visible: false,
+				visible: true,
 				messages: [
 					{
 						date: '20/01/2021 10:42:32',
@@ -80,7 +79,7 @@ const boolZapp = new Vue({
 			{
 				name: 'Donato',
 				avatar: 'img/avatar_5.jpg',
-				visible: false,
+				visible: true,
 				messages: [
 					{
 						date: '22/04/2021 16:23:39',
@@ -107,7 +106,7 @@ const boolZapp = new Vue({
 			{
 				name: 'Simone',
 				avatar: 'img/avatar_7.jpg',
-				visible: false,
+				visible: true,
 				messages: [
 					{
 						date: '22/04/2021 17:31:22',
@@ -128,14 +127,14 @@ const boolZapp = new Vue({
 
 	//	METHODS
 	methods: {
-		changeContact(index){
+		changeContact(index) {
 			this.contactIndex = index;
 		},
 		//  Per vedere se una porzione di stringa è compresa
-		filterTodos() {
-			this.contacts.forEach((element) => {
-				//  Se la stringa è compresa, la visibilità è true
-				if(element.text.toLowerCase().includes(this.userFilter.toLowerCase())) {
+		filterUsers() {
+			this.contacts.forEach( (element) => {
+				//  Se la stringa è compresa, la visibilità è true - viceversa
+				if(element.name.toLowerCase().includes(this.search.toLowerCase())) {
 					element.visible = true;
 				} else {
 					element.visible = false;

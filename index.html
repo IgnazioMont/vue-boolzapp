@@ -61,7 +61,7 @@
                         <!-- Search section -->
                         <div class="search">
                             <div><i class="fas fa-search"></i></div>
-                            <input v-model="search" type="text" @keyup="filterTodos" placeholder="Cerca o inizia una nuova chat">
+                            <input v-model="search" type="text" @keyup="filterUsers" placeholder="Cerca o inizia una nuova chat">
                         </div>
                         <!-- Opened chats -->
                         <div class="contact-list">
@@ -71,7 +71,14 @@
                                     se corrispondono la classe è active (bg grigio sulla lista a sx) + 
                                     scorre tutti gli user e al click mostra la conversazione corrispondente allo user.
                                 -->
-                                <li v-for="(contact, index) in contacts" class="contact" :class="contactIndex == index ? 'active' : ''" @click="changeContact(index)">
+                                <li 
+                                    v-for="(contact, index) in contacts"
+                                    v-if="contact.visible"
+                                    class="contact"
+                                    :class="contactIndex == index ? 'active' : '' "
+                                    @click="changeContact(index)"
+                                    >
+
                                     <div class="img-container">
                                         <img :src="contact.avatar" alt="avatar">
                                     </div>
