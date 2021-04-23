@@ -153,7 +153,10 @@ img {
     border: 1px solid #E9EBEB;
     border-left: none;
 }
-
+.contact-list {
+    height: calc(90vh - 200px);
+    overflow-y: auto;
+}
 .contact {
     display: flex;
     align-items: center;
@@ -223,8 +226,34 @@ img {
     font-size: 10px;
     color: #acacac;
 }
-
-/* Sent / received msg */
+#message-arrow {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    opacity: 0;
+    color: #acacac;
+}
+.messages div:hover #message-arrow {
+    opacity: 1;
+    cursor: pointer;
+}
+.message-menu {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: 150px;
+    padding: 15px 10px 10px 10px;
+    line-height: 2;
+    background: white;
+    white-space: nowrap;
+    z-index: 3;
+    box-shadow: 3px 2px 20px 8px #888888;
+    list-style-type: none;
+}
+.message-menu li:hover {
+    cursor: pointer;
+}
+/* Sent/received msg */
 .sent {
     background-color: #D5F9BA;
     align-self: flex-end;
@@ -255,4 +284,17 @@ img {
 }
 .chat-input i:hover {
     cursor: pointer;
+}
+
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background:#d5f9ba7c;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #acacac;
 }
