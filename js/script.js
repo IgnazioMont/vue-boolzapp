@@ -46,20 +46,17 @@ const boolZapp = new Vue({
 					{
 						date: '22/04/2021 15:30:07',
 						text: "Ciao Ale, hai seguito l'ultimo lancio della Space X?",
-						status: 'sent',
-						visibility: "hidden"
+						status: 'sent'
 					},
 					{
 						date: '22/04/2021 15:30:23',
 						text: 'Ti consiglio la live su YouTube',
-						status: 'sent',
-						visibility: "hidden"
+						status: 'sent'
 					},
 					{
 						date: '22/04/2021 15:31:54',
 						text: 'Corro!',
-						status: 'received',
-						visibility: "hidden"
+						status: 'received'
 					}
 				],
 			},
@@ -73,20 +70,17 @@ const boolZapp = new Vue({
 					{
 						date: '20/01/2021 10:42:32',
 						text: 'Buongiorno Fabio, vorrei iscrivermi al vostro corso.',
-						status: 'sent',
-						visibility: "hidden"
+						status: 'sent'
 					},
 					{
 						date: '20/01/2021 17:12:22',
 						text: 'Grazie per averci scelto. Consulta il nostro sito Web.',
-						status: 'received',
-						visibility: "hidden"
+						status: 'received'
 					},
 					{
 						date: '21/01/2021 08:54:36',
 						text: "Ok, grazie mille, non vedo l'ora di iniziare!",
-						status: 'sent',
-						visibility: "hidden"
+						status: 'sent'
 					}
 				],
 			},
@@ -100,20 +94,17 @@ const boolZapp = new Vue({
 					{
 						date: '22/04/2021 16:23:39',
 						text: 'Ciao, ricordati di pushare!',
-						status: 'received',
-						visibility: "hidden"
+						status: 'received'
 					},
 					{
 						date: '22/04/2021 16:25:19',
 						text: 'Ok Donato, me ne dimentico SEMPRE!',
-						status: 'sent',
-						visibility: "hidden"
+						status: 'sent'
 					},
 					{
 						date: '22/04/2021 16:26:36',
 						text: 'Bene.',
-						status: 'received',
-						visibility: "hidden"
+						status: 'received'
 					}
 				],
 			},
@@ -127,14 +118,12 @@ const boolZapp = new Vue({
 					{
 						date: '22/04/2021 17:31:22',
 						text: "Ciao Simone, saresti così gentile da farmi l'esercizio?",
-						status: 'sent',
-						visibility: "hidden"
+						status: 'sent'
 					},
 					{
 						date: '22/04/2021 17:35:07',
 						text: 'Direi proprio di no. Studia!',
-						status: 'received',
-						visibility: "hidden"
+						status: 'received'
 					}
 				],
 			}
@@ -163,18 +152,25 @@ const boolZapp = new Vue({
 			if (this.userInput != "") {
 				this.contacts[this.contactIndex].messages.push(
 					{
-						visibility: "hidden",
 						date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
 						text: this.userInput,
 						status: 'sent'
 					});
-				
-				/* this.recivedMessage(); */
+				this.userInput = '';
 			}
+			this.reciveMessage();
 		},
-
-		receivedMessage() {
-
+		
+		//	Messaggio ricevuto che appare dopo 1 sec, richiamato dalla funz. sopra
+		reciveMessage() {
+			setTimeout(() => {
+				this.contacts[this.contactIndex].messages.push(
+					{
+						date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
+						text: 'Ok',
+						status: 'received'
+					});
+			}, 1000);
 		}
 	}
 });
