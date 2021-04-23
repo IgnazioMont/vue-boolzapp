@@ -83,6 +83,9 @@
                                         <img :src="contact.avatar" alt="avatar">
                                     </div>
                                     <p> {{contact.name}} </p>
+
+                                    <!-- Collego la data corrispondete all'ultimo messaggio della singola chat per User -->
+                                    <span class="data">{{contact.messages[contact.messages.length - 1].date}}</span>
                                 </li>
                             </ul>
                         </div>
@@ -114,7 +117,12 @@
                     <div class="chat-box">
                         <div class="messages">
                             <!-- Scorriamo i messaggi in base allo stato (inviato/ricevuto) -->
-                            <div :class="message.status" v-for="(message, index) in contacts[contactIndex].messages"> {{message.text}}
+                            <div 
+                                :class="message.status"
+                                v-for="(message, index) in contacts[contactIndex].messages"
+                                > 
+                                {{message.text}}
+
                                 <!-- Inseriamo data e ora -->
                                 <span class="data">{{message.date}}</span>
                             </div>
@@ -124,8 +132,13 @@
                     <!-- Chat input  -->
                     <div class="chat-input">
                         <i class="far fa-smile"></i>
-                        <input placeholder="Scrivi un messaggio">
-                        <i class="fas fa-microphone"></i>
+                        <input 
+                            type="text"
+                            v-model="userInput"
+                            @keyup.enter="sendMessage()"
+                            placeholder="Scrivi un messaggio"
+                            >
+                        <i class="fas fa-microphone" @click="sendMessage()"></i>
                     </div>
                 </div>
             </div>

@@ -125,6 +125,7 @@ img {
     cursor: pointer;
 }
 
+
 /* CONTACTS LIST */
 
 /* Search section */
@@ -150,6 +151,7 @@ img {
     padding: 10px;
     outline: none;
     border: 1px solid #E9EBEB;
+    border-left: none;
 }
 
 .contact {
@@ -165,20 +167,19 @@ img {
     align-self: center;
     margin-left: 15px;
 }
+.contact .data {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+}
 .contact:hover {
-    background-color: #E9EBEB;
+    background-color: #f1f1f1af;
     cursor: pointer;
 }
 .active {
     background-color: #E9EBEB;
 }
-.data {
-    position: absolute;
-    bottom: 6px;
-    right: 10px;
-    font-size: 10px;
-    color:  #acacac;
-}
+
 
 /* Chat section */
 .chat {
@@ -186,14 +187,14 @@ img {
     height: 100%;
 }
 .chat-header > .header-left {
-    font-size: 1rem;
+    font-size: 18px;
 }
 .chat-header > .header-left img {
     margin-right: 20px;
 }
 .chat-header > .header-left p span {
     color: grey;
-    font-size: .8rem;
+    font-size: 12px;
 }
 .chat-box {
     width: 100%;
@@ -214,6 +215,13 @@ img {
     border-radius: 10px;
     position: relative;
     margin-bottom: 10px;
+}
+.data {
+    position: absolute;
+    bottom: 6px;
+    right: 10px;
+    font-size: 10px;
+    color: #acacac;
 }
 
 /* Sent / received msg */
@@ -244,4 +252,7 @@ img {
 .chat-input i {
     color: #6B7376;
     font-size: 20px;
+}
+.chat-input i:hover {
+    cursor: pointer;
 }
