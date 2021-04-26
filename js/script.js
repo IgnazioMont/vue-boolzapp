@@ -143,11 +143,13 @@ const boolZapp = new Vue({
 
 	//	METHODS
 	methods: {
+		//	Set active contact
 		changeContact(index) {
 			this.contactIndex = index;
 		},
 		//  Per vedere se una porzione di stringa è compresa
 		filterUsers() {
+			//	Scorriamo ogni oggetto di "contacts" e valutiamo se il "name" o parte di esso compare nell'input
 			this.contacts.forEach( (element) => {
 				//  Se la stringa è compresa, la visibilità è true - viceversa
 				if(element.name.toLowerCase().includes(this.search.toLowerCase())) {
@@ -158,33 +160,36 @@ const boolZapp = new Vue({
 			});
 		},
 
-		//	Messaggio inviato al click-enter rilasciato
+		//	Messaggio inviato al click-enter rilasciato, con risposta automatica
 		sendMessage() {
 			if (this.userInput != "") {
 				this.contacts[this.contactIndex].messages.push(
 					{
 						date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
+						//	Il testo sarà l'input dell'utente
 						text: this.userInput,
 						status: 'sent',
 						visibility: 'hidden'
 					});
-				//	Svuotiamo la stringa
+				//	Svuotiamo la stringa altrimenti nell'input rimane ciò che l'utente scrive
 				this.userInput = '';
-			}
-			this.reciveMessage();
-		},
 
-		//	Messaggio ricevuto che appare dopo 1 sec, richiamato dalla funz. sopra
-		reciveMessage() {
-			setTimeout(() => {
-				this.contacts[this.contactIndex].messages.push(
-					{
-						date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
-						text: 'Ok',
-						status: 'received',
-						visibility: 'hidden'
-					});
-			}, 1000);
+				//	Salviamo il messaggio del contatto attivo (l'ultimo appena immesso) per evitare che 
+				//	au un eventuale click veloce su un altro contatto mandi la risposta automatica 
+				//	al nuovo contatto cliccato
+				const thisActiveContact = this.contactIndex;
+
+				//	Messaggio ricevuto automatico che appare dopo 1 sec
+				setTimeout(() => {
+					this.contacts[thisActiveContact].messages.push(
+						{
+							date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
+							text: 'Ok',
+							status: 'received',
+							visibility: 'hidden'
+						});
+				}, 1000);
+			}
 		},
 
 		//	Visibility dropdown on msg
@@ -196,6 +201,25 @@ const boolZapp = new Vue({
 				}
 			});
 			message.visibility = message.visibility == 'hidden' ? 'show' : 'hidden';
+		},
+
+		//	Delete msg from dropdown
+		//	NON ELIMINA L'ULTIMO MESSAGGIO RIMASTO!!!
+		deleteMessage(index) {
+			/*
+			Oppure:
+			this.$delete(this.contacts[this.contactIndex].messages, index)
+			*/
+			
+			this.contacts[this.contactIndex].messages.splice(index, 1);
+
+			/* if(this.contacts[this.contactIndex].messages.length == 0) {
+				this.contacts[this.contactIndex].messages.push(
+					{
+						visibility: 'hidden'
+					}
+				);
+			} */
 		}
 	}
 });

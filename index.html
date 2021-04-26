@@ -40,7 +40,7 @@
                             </div>
                             <h2>Myself</h2>
                         </div>
-                        <!-- Icons right -->
+                        <!-- Icons col left -->
                         <div class="header-right">
                             <i class="fas fa-circle-notch"></i>
                             <i class="fas fa-comment-alt"></i>
@@ -56,13 +56,19 @@
                         </p>
                     </div>
 
-                    <!-- Contacts list -->
+                    <!-- Contacts list left col -->
                     <div class="contacts">
                         <!-- Search section -->
                         <div class="search">
                             <div><i class="fas fa-search"></i></div>
-                            <input v-model="search" type="text" @keyup="filterUsers" placeholder="Cerca o inizia una nuova chat">
+                            <input 
+                                v-model="search" 
+                                type="text" 
+                                @keyup="filterUsers" 
+                                placeholder="Cerca o inizia una nuova chat"
+                            >
                         </div>
+
                         <!-- Opened chats -->
                         <div class="contact-list">
                             <ul>
@@ -79,13 +85,17 @@
                                     @click="changeContact(index)"
                                     >
 
+                                    <!-- Images contacts left col -->
                                     <div class="img-container">
                                         <img :src="contact.avatar" alt="avatar">
                                     </div>
-                                    <p> {{contact.name}} </p>
-
+                                    <!-- Name &  text contact -->
+                                    <div class="name-text">
+                                        <p> {{contact.name}} </p>
+                                        <p class="last-user-msg"> {{contact.messages[contact.messages.length - 1].text }} </p>
+                                    </div>
                                     <!-- Collego la data corrispondete all'ultimo messaggio della singola chat per User -->
-                                    <span class="data">{{contact.messages[contact.messages.length - 1].date}}</span>
+                                    <span class="data"> {{contact.messages[contact.messages.length - 1].date}} </span>
                                 </li>
                             </ul>
                         </div>
@@ -97,7 +107,9 @@
                     <header class="chat-header">
                         <!-- Profile section -->
                         <div class="header-left">
+                            <!-- Change index img -->
                             <img :src="contacts[contactIndex].avatar" alt="profilo">
+                            <!-- Name contact on right col + last online -->
                             <p> {{contacts[contactIndex].name}} <br>
                                 <span>Ultimo accesso:
                                     <!-- All'indice del messaggio, prendo la data del message -->
@@ -105,7 +117,7 @@
                             </p>
                         </div>
 
-                        <!-- Icons right -->
+                        <!-- Icons right col -->
                         <div class="header-right">
                             <i class="fas fa-search"></i>
                             <i class="fas fa-paperclip"></i>
@@ -117,17 +129,20 @@
                     <div class="chat-box">
                         <div class="messages">
                             <!-- Scorriamo i messaggi in base allo stato (inviato/ricevuto) -->
-                            <div 
+                            <div
                                 :class="message.status"
                                 v-for="(message, index) in contacts[contactIndex].messages"
                                 > 
                                 {{message.text}}
 
                                 <!-- Inseriamo data e ora -->
-                                <span class="data">{{message.date}}</span>
+                                <span class="data"> {{message.date}} </span>
 
                                 <!-- Menu dropdown hover per info/eliminare il msg -->
-                                <i @click="toggleMessageDrop(message, index)" class="fas fa-chevron-down" id="message-arrow"></i>
+                                <i  @click="toggleMessageDrop(message, index)" 
+                                    class="fas fa-chevron-down" 
+                                    id="message-arrow">
+                                </i>
                                 <ul :class="message.visibility" class="message-menu">
                                     <li>Message info</li>
                                     <li @click="deleteMessage(index)">Delete message</li>
@@ -142,13 +157,16 @@
                         <input 
                             type="text"
                             v-model="userInput"
-                            @keyup.enter="sendMessage()"
+                            @keyup.enter="sendMessage"
                             placeholder="Scrivi un messaggio"
-                            >
-                        <i class="fas fa-microphone" @click="sendMessage()"></i>
+                        >
                         
-                        <!-- Prova sul cambio icona all'invio del msg -->
-                        <!--  <i class="fas" :class="userInput == '' ? 'fa-microphone' : 'fa-paper-plane'"></i>  -->
+                        <!-- Al click col cursore cambio l'icona se l'input non è vuoto -->
+                        <i 
+                            @click="sendMessage" 
+                            class="fas" 
+                            :class="userInput == '' ? 'fa-microphone' : 'fa-paper-plane'">
+                        </i> 
                     </div>
                 </div>
             </div>
