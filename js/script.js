@@ -204,22 +204,8 @@ const boolZapp = new Vue({
 		},
 
 		//	Delete msg from dropdown
-		//	NON ELIMINA L'ULTIMO MESSAGGIO RIMASTO!!!
-		deleteMessage(index) {
-			/*
-			Oppure:
-			this.$delete(this.contacts[this.contactIndex].messages, index)
-			*/
-			
-			this.contacts[this.contactIndex].messages.splice(index, 1);
-
-			/* if(this.contacts[this.contactIndex].messages.length == 0) {
-				this.contacts[this.contactIndex].messages.push(
-					{
-						visibility: 'hidden'
-					}
-				);
-			} */
+		deleteMessage(msgIndex) {
+			this.contacts[this.contactIndex].messages.splice(msgIndex, 1);
 		}
 	}
 });

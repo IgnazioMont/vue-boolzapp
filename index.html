@@ -92,10 +92,10 @@
                                     <!-- Name &  text contact -->
                                     <div class="name-text">
                                         <p> {{contact.name}} </p>
-                                        <p class="last-user-msg"> {{contact.messages[contact.messages.length - 1].text }} </p>
+                                        <p v-if="contact.messages.length > 0" class="last-user-msg"> {{contact.messages[contact.messages.length - 1].text}} </p>
                                     </div>
                                     <!-- Collego la data corrispondete all'ultimo messaggio della singola chat per User -->
-                                    <span class="data"> {{contact.messages[contact.messages.length - 1].date}} </span>
+                                    <span v-if="contact.messages.length > 0" class="data"> {{contact.messages[contact.messages.length - 1].date}} </span>
                                 </li>
                             </ul>
                         </div>
@@ -111,7 +111,7 @@
                             <img :src="contacts[contactIndex].avatar" alt="profilo">
                             <!-- Name contact on right col + last online -->
                             <p> {{contacts[contactIndex].name}} <br>
-                                <span>Ultimo accesso:
+                                <span v-if="contacts[contactIndex].messages.length > 0">Ultimo accesso:
                                     <!-- All'indice del messaggio, prendo la data del message -->
                                     {{contacts[contactIndex].messages[contacts[contactIndex].messages.length - 1].date}}</span>
                             </p>
