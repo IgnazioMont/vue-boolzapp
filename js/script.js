@@ -35,6 +35,7 @@ const boolZapp = new Vue({
 		search: "",
 		contactIndex: 0,
 
+		//	CONTACTS LIST
 		contacts: [
 			//	Alessandro
 			{
@@ -42,6 +43,7 @@ const boolZapp = new Vue({
 				avatar: 'img/avatar_2.jpg',
 				visible: true,
 				isActive: "",
+
 				messages: [
 					{
 						date: '22/04/2021 15:30:07',
@@ -159,7 +161,6 @@ const boolZapp = new Vue({
 				}
 			});
 		},
-
 		//	Messaggio inviato al click-enter rilasciato, con risposta automatica
 		sendMessage() {
 			if (this.userInput != "") {
@@ -191,7 +192,6 @@ const boolZapp = new Vue({
 				}, 1000);
 			}
 		},
-
 		//	Visibility dropdown on msg
 		toggleMessageDrop(message, index) {
 			let targetIndex = index;
@@ -202,7 +202,6 @@ const boolZapp = new Vue({
 			});
 			message.visibility = message.visibility == 'hidden' ? 'show' : 'hidden';
 		},
-
 		//	Delete msg from dropdown
 		deleteMessage(msgIndex) {
 			this.contacts[this.contactIndex].messages.splice(msgIndex, 1);

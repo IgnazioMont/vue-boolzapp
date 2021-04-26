@@ -96,6 +96,7 @@
                                     </div>
                                     <!-- Collego la data corrispondete all'ultimo messaggio della singola chat per User -->
                                     <span v-if="contact.messages.length > 0" class="data"> {{contact.messages[contact.messages.length - 1].date}} </span>
+                                    <span class="data" v-else>Questa chat è vuota</span>
                                 </li>
                             </ul>
                         </div>
@@ -114,6 +115,7 @@
                                 <span v-if="contacts[contactIndex].messages.length > 0">Ultimo accesso:
                                     <!-- All'indice del messaggio, prendo la data del message -->
                                     {{contacts[contactIndex].messages[contacts[contactIndex].messages.length - 1].date}}</span>
+                                <span v-else>Questa chat è vuota</span>
                             </p>
                         </div>
 
